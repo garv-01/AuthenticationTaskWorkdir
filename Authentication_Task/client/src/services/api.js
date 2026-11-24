@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://authentication-task-workdir-backend.vercel.app/api",
+    baseURL: "https://authentication-task-workdir-backend.vercel.app/",
     withCredentials: true
 });
 
