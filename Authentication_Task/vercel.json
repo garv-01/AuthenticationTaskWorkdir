@@ -1,0 +1,26 @@
+{
+  "services": {
+    "client": {
+      "root": "Authentication_Task/client",
+      "framework": "vite"
+    },
+    "server": {
+      "root": "Authentication_Task/server",
+      "runtime": "node"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "server"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "client"
+      }
+    }
+  ]
+}
