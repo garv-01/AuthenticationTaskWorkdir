@@ -1,0 +1,406 @@
+@import "tailwindcss";
+
+:root {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #172033;
+    background: #f4f6fb;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+button, input { font: inherit; }
+
+.auth-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(280px, 42%) 1fr;
+}
+
+.auth-banner {
+    background: linear-gradient(145deg, #4f46e5 0%, #6366f1 55%, #818cf8 100%);
+    color: white;
+    padding: 42px 52px;
+    display: flex;
+    flex-direction: column;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.brand-mark {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #4f46e5;
+    color: white;
+}
+
+.brand-light .brand-mark {
+    background: white;
+    color: #4f46e5;
+}
+
+.banner-copy {
+    margin: auto 0;
+    max-width: 440px;
+}
+
+.banner-copy h2 {
+    margin: 12px 0 20px;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+}
+
+.banner-copy p { color: #e0e7ff; font-size: 18px; }
+
+.auth-panel {
+    display: grid;
+    place-items: center;
+    padding: 48px 24px;
+}
+
+.auth-form {
+    width: min(420px, 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-heading { margin-bottom: 28px; }
+
+.eyebrow {
+    color: #6366f1;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.auth-banner .eyebrow { color: #c7d2fe; }
+
+.auth-heading h1 {
+    margin: 8px 0;
+    font-size: 38px;
+    letter-spacing: -0.045em;
+}
+
+.auth-heading p { margin: 0; color: #687089; }
+
+.auth-form label {
+    margin: 14px 0 7px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.auth-form input {
+    width: 100%;
+    border: 1px solid #dfe3ed;
+    border-radius: 10px;
+    background: white;
+    padding: 13px 14px;
+    outline: none;
+}
+
+.auth-form input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.primary-button, .logout-button {
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 750;
+}
+
+.primary-button {
+    margin-top: 22px;
+    padding: 14px;
+    background: #4f46e5;
+    color: white;
+}
+
+.primary-button:hover { background: #4338ca; }
+.primary-button:disabled, .logout-button:disabled { opacity: 0.65; cursor: wait; }
+
+.form-message {
+    margin: 14px 0 0;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+}
+
+.form-message.error { background: #fff1f2; color: #be123c; }
+.form-message.success { background: #ecfdf5; color: #047857; }
+
+.auth-switch {
+    margin-top: 20px;
+    text-align: center;
+    color: #687089;
+}
+
+.auth-switch button {
+    border: 0;
+    background: none;
+    color: #4f46e5;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.loading-screen {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.spinner {
+    width: 38px;
+    height: 38px;
+    border: 3px solid #dfe3ed;
+    border-top-color: #4f46e5;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.dashboard {
+    min-height: 100vh;
+    background: #f4f6fb;
+}
+
+.dashboard-nav {
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(24px, 6vw, 80px);
+    background: white;
+    border-bottom: 1px solid #e7eaf1;
+}
+
+.logout-button {
+    background: #eef2ff;
+    color: #4f46e5;
+    padding: 10px 16px;
+}
+
+.dashboard-card {
+    width: min(960px, calc(100% - 48px));
+    margin: 64px auto;
+    padding: clamp(28px, 5vw, 56px);
+    background: white;
+    border: 1px solid #e7eaf1;
+    border-radius: 18px;
+    box-shadow: 0 18px 50px rgba(35, 42, 74, 0.08);
+}
+
+.dashboard-card h1 {
+    margin: 10px 0 6px;
+    font-size: clamp(34px, 5vw, 52px);
+    letter-spacing: -0.05em;
+}
+
+.dashboard-card > p { color: #687089; }
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 36px;
+}
+
+.profile-grid div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f8f9fc;
+}
+
+.profile-grid span { color: #687089; font-size: 13px; }
+.profile-grid strong { overflow-wrap: anywhere; }
+.profile-grid .status { color: #047857; }
+
+.product-section {
+    width: min(960px, calc(100% - 48px));
+    margin: 0 auto 64px;
+}
+
+.product-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.product-heading h2 {
+    margin: 6px 0 0;
+    font-size: 32px;
+    letter-spacing: -0.04em;
+}
+
+.secondary-button {
+    border: 1px solid #dfe3ed;
+    border-radius: 9px;
+    background: white;
+    color: #4f46e5;
+    padding: 9px 13px;
+    cursor: pointer;
+    font-weight: 750;
+}
+
+.product-form {
+    padding: 24px;
+    background: white;
+    border: 1px solid #e7eaf1;
+    border-radius: 14px;
+}
+
+.product-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.product-fields label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.product-fields input,
+.product-fields textarea {
+    width: 100%;
+    border: 1px solid #dfe3ed;
+    border-radius: 9px;
+    background: white;
+    padding: 11px 12px;
+    outline: none;
+}
+
+.product-fields textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.product-fields input:focus,
+.product-fields textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.full-field { grid-column: 1 / -1; }
+.product-submit { width: 100%; }
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.product-card {
+    overflow: hidden;
+    background: white;
+    border: 1px solid #e7eaf1;
+    border-radius: 14px;
+}
+
+.product-card img,
+.product-image-placeholder {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.product-image-placeholder {
+    display: grid;
+    place-items: center;
+    background: #eef2ff;
+    color: #4f46e5;
+    font-size: 44px;
+    font-weight: 800;
+}
+
+.product-card-body { padding: 18px; }
+.product-category { color: #6366f1; font-size: 12px; font-weight: 800; text-transform: uppercase; }
+.product-card h3 { margin: 7px 0; }
+.product-card p {
+    min-height: 42px;
+    margin: 0;
+    color: #687089;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.product-meta span { color: #687089; font-size: 13px; }
+
+.product-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.product-actions button {
+    flex: 1;
+    border: 1px solid #dfe3ed;
+    border-radius: 8px;
+    background: white;
+    padding: 8px;
+    cursor: pointer;
+    color: #4f46e5;
+    font-weight: 750;
+}
+
+.product-actions .delete-button {
+    color: #be123c;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    padding: 28px;
+    text-align: center;
+    background: white;
+    border: 1px solid #e7eaf1;
+    border-radius: 12px;
+    color: #687089;
+}
+
+@media (max-width: 760px) {
+    .auth-page { grid-template-columns: 1fr; }
+    .auth-banner { min-height: 220px; padding: 24px; }
+    .banner-copy { margin: auto 0 0; }
+    .banner-copy h2 { font-size: 34px; }
+    .banner-copy p { display: none; }
+    .auth-panel { min-height: calc(100vh - 220px); }
+    .profile-grid { grid-template-columns: 1fr; }
+    .product-section { width: calc(100% - 32px); }
+    .product-fields { grid-template-columns: 1fr; }
+    .full-field { grid-column: auto; }
+    .product-list { grid-template-columns: 1fr; }
+}
